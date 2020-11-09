@@ -1,33 +1,33 @@
 #!/usr/bin/env bash
 #File guessingame.sh
 
-count=0
+User_Input_count=0
+Actual_File_count=$(ls | wc -l)
+function User_Input {
 
-function guess {
-echo "How many files are in the current directory:"
-read count
-}
+	        echo "Enter the guess for number of files in the current directory"
+		        read User_Input_count
+			        }
 
-while true
-do
-	guess
-	if [[ $count == ?(-)+([0-9]) ]]
-	then 
-           actual_file_count=`ls -al | egrep ^[-] | wc -l`
-         if [[ $actual_file_count -eq $count ]]
-	 then
-		 echo "Congratulation, It is correct!!"
-		 break;
-	 elif [[ $count -lt $actual_file_count  ]]
-	 then
-		 echo "Guessed file count is too low"
-	 elif [[ $count -gt $actual_file_count ]]
-	 then
-		 echo "Guessed file count is too high"
-		fi
-	else
-		echo "Enter only number"
-	fi
-done
+			while true
+			do
+				        User_Input
+					        if [[ $User_Input_count == +([0-9]) ]]
+							        then
 
+									                if [[ $User_Input_count -lt $Actual_File_count  ]]
+												                then
+															                        echo "Your guessed file count is too low"
+																		                elif [[ $User_Input_count -gt $Actual_File_count ]]
+																					                then
+																								                        echo "Your guessed file count is too high"
+																											                else
+																														                        echo " congratulation"
+																																	                        break;
+																																				                fi
+																																						        else
+
+																																								                echo "$User_Input_count is not a number"
+																																										        fi
+																																										done
 			

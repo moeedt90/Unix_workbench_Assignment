@@ -1,3 +1,6 @@
+#/usr/bin/env bash
+all: README.md
+
 echo "Peer-graded Assignment, Unix Workbench" > README.md
 date >> README.md
-cat guessinggame.sh | wc -l  >> README.md 
+cat guessinggame.sh | wc -l  >> README.md
